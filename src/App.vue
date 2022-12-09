@@ -13,12 +13,15 @@ onMounted(() => {
 
 <template>
   <header>
-    <img alt="Master News Logo" class="logo" src="./assets/images/master-news-skull-1.jpeg" />
+    <div class="logo-box">
+      <img alt="Boolean News Logo" class="logo" src="./assets/images/master-news-skull-1.jpeg" />
+    </div>
     <div>
-      <HelloWorld msg="Master News" />
+      <HelloWorld msg="Boolean News" />
       <nav @click="scrollTo">
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/space">Space</RouterLink>
+        <RouterLink to="/space">Space (EN)</RouterLink>
+        <RouterLink to="/feriados">Feriados</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
@@ -35,7 +38,6 @@ header {
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  height: 100vh;
 }
 
 nav {
@@ -45,9 +47,19 @@ nav {
   border-bottom: 1px solid #dedede;
 }
 
+.logo-box {
+  background-image: url(./assets/images/matrix-bg.gif);
+  background-size: contain;
+  height: 480px;
+  border-radius: 0 25px 5px 8px;
+}
 .logo {
-  width: 250px;
-  border-radius: 25px 25px 5px 5px;
-  margin-bottom: 10px;
+  width: 320px;
+  border-radius: 0 25px 25px 0;
+  transition: border-radius 2s ease;
+}
+.logo:hover {
+  transition: border-radius 2s ease;
+  border-radius: 0 25px 100% 0;
 }
 </style>
