@@ -6,6 +6,10 @@ const result = () => {
       return 0
     case "right":
       return "180deg"
+    case "top":
+      return "90deg"
+    case "bottom":
+      return "-90deg"
   }
 }
 </script>

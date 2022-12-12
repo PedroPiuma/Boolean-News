@@ -48,7 +48,11 @@ const pageQtd = (event) => (limit.value = event.target.value)
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 15px;
+  position: sticky;
+  margin-bottom: 15px;
+  top: 0;
+  z-index: 1;
+  background-color: #181818;
 }
 
 .pageValue,

@@ -20,9 +20,9 @@ onMounted(() => {
       <HelloWorld msg="Boolean News" />
       <nav @click="scrollTo">
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/space">Space (EN)</RouterLink>
-        <RouterLink to="/feriados">Feriados</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/space">Aeroespacial (EN)</RouterLink>
+        <RouterLink to="/feriados">Feriados (BR)</RouterLink>
+        <!-- <RouterLink to="/about">About</RouterLink> -->
       </nav>
     </div>
   </header>

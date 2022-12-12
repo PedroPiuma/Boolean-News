@@ -13,12 +13,20 @@
     transform: rotate(360deg);
   }
 }
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 div.loader {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 200px;
 }
 
 div.loader div {
@@ -30,6 +38,6 @@ div.loader div {
   padding: 0;
   border-radius: 100%;
   text-align: center;
-  animation: loader 2s infinite;
+  animation: loader 2s infinite, show 0.5s ease-in-out;
 }
 </style>

@@ -1,18 +1,27 @@
 <script setup>
 import { format } from "date-fns"
+import IconPast from "./icons/IconPast.vue"
+import IconFuture from "./icons/IconFuture.vue"
+import IconCloseGray from "./icons/IconCloseGray.vue"
+import Timer from "./Timer.vue"
+import { ref } from "vue"
 
 const { holiday } = defineProps(["holiday"])
-const { date, name, type } = holiday
+const { date, name, flag } = holiday
 
 const formatedDate = format(new Date(date), "dd/MM/yyyy")
-console.log(formatedDate)
+const isActive = ref(null)
 </script>
 
 <template>
-  <div class="holiday">
-    <span>{{ date }} </span>
+  <div class="holiday" :class="isActive ? 'active' : ''" @click="isActive = !isActive">
+    <IconCloseGray v-if="isActive" class="closer" />
+    <span> {{ formatedDate }}</span>
     <h3>{{ name }}</h3>
-    <p>{{ type }}</p>
+    <IconPast v-if="!flag" />
+    <IconFuture v-if="flag" />
+    <p v-if="isActive">Feriado nacional</p>
+    <Timer v-if="isActive" :date="date" :flag="flag" />
   </div>
 </template>
 
@@ -26,9 +35,9 @@ console.log(formatedDate)
   padding: 0 5px 20px;
   margin: 10px 15px;
   background-color: #121212;
+  cursor: pointer;
 }
-.holiday span,
-.holiday a {
+.holiday span {
   font-size: 17px;
 }
 .holiday h3 {
@@ -39,16 +48,22 @@ console.log(formatedDate)
   font-weight: bold;
   margin-bottom: 10px;
 }
-
-.holiday img {
-  width: 100%;
-  border-radius: 5%;
-  margin-bottom: 10px;
-}
-
 .holiday p {
-  margin: 0 15px;
+  margin: 15px 15px 0;
   text-align: center;
   font-size: 14px;
+}
+
+.holiday.active {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  border: 3px solid #00bd7e;
+}
+
+.holiday.active .closer {
+  position: absolute;
+  top: 5px;
+  right: 10px;
 }
 </style>
