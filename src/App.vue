@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue"
 import { RouterLink, RouterView } from "vue-router"
 import HelloWorld from "./components/HelloWorld.vue"
+import SocialMedia from "./components/SocialMedia.vue"
 
 const main = ref(null)
 const scrollTo = () => main.value.scrollIntoView()
@@ -30,6 +31,10 @@ onMounted(() => {
   <main id="main">
     <RouterView />
   </main>
+
+  <footer class="footer">
+    <SocialMedia />
+  </footer>
 </template>
 
 <style scoped>
@@ -61,5 +66,9 @@ nav {
 .logo:hover {
   transition: border-radius 2s ease;
   border-radius: 0 25px 100% 0;
+}
+
+.footer {
+  padding: 40px 0 40px;
 }
 </style>
