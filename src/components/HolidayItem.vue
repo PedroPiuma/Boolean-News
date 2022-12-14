@@ -36,6 +36,8 @@ const isActive = ref(null)
   margin: 10px 15px;
   background-color: #121212;
   cursor: pointer;
+  width: 90%;
+  max-width: 300px;
 }
 .holiday span {
   font-size: 17px;
@@ -65,5 +67,8 @@ const isActive = ref(null)
   position: absolute;
   top: 5px;
   right: 10px;
+}
+
+@media (min-width: 768px) {
 }
 </style>

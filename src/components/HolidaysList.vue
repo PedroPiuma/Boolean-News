@@ -1,14 +1,15 @@
 <script setup>
 import Loader from "./Loader.vue"
 import HolidayItem from "./HolidayItem.vue"
-
 const { data, errorMsg } = defineProps(["data", "errorMsg"])
 </script>
 
 <template>
   <p class="message" v-if="errorMsg">{{ errorMsg }}</p>
   <Loader v-if="!data" />
-  <HolidayItem v-for="holiday in data" :holiday="holiday" />
+  <div class="holiday-list">
+    <HolidayItem v-for="holiday in data" :holiday="holiday" />
+  </div>
 </template>
 
 <style scoped>
@@ -18,6 +19,20 @@ const { data, errorMsg } = defineProps(["data", "errorMsg"])
   }
   100% {
     opacity: 1;
+  }
+}
+
+.holiday-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .holiday-list {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 .message {

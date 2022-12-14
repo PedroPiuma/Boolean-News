@@ -5,7 +5,7 @@ const { msg } = defineProps(["msg"])
 <template>
   <div class="header-title">
     <h1 class="green">{{ msg }}</h1>
-    <h3>Você está no site com a maior concentração de notíticias úteis.</h3>
+    <h3>Random API's</h3>
   </div>
 </template>
 

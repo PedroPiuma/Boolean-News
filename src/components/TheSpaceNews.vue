@@ -13,8 +13,12 @@ const data = ref(null)
 async function fetchData() {
   data.value = null
   url.value = `https://api.spaceflightnewsapi.net/v3/articles?_start=${start.value}&_limit=${limit.value}`
-  const request = await axios.get(url.value)
-  data.value = request.data
+  try {
+    const request = await axios.get(url.value)
+    data.value = request.data
+  } catch (error) {
+    console.log(error.response.data.message)
+  }
 }
 fetchData()
 watch([url, start, limit], fetchData)

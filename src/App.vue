@@ -2,10 +2,13 @@
 import { onMounted, ref } from "vue"
 import { RouterLink, RouterView } from "vue-router"
 import HelloWorld from "./components/HelloWorld.vue"
+import IconUpArrow from "./components/icons/IconUpArrow.vue"
 import SocialMedia from "./components/SocialMedia.vue"
 
 const main = ref(null)
 const scrollTo = () => main.value.scrollIntoView()
+
+const scrollStatus = (event) => console.log(event)
 
 onMounted(() => {
   main.value = document.getElementById("main")
@@ -15,11 +18,12 @@ onMounted(() => {
 <template>
   <header>
     <div class="logo-box">
-      <img alt="Boolean News Logo" class="logo" src="./assets/images/master-news-skull-1.jpeg" />
+      <!-- <img alt="Boolean News Logo" class="logo" src="./assets/images/master-news-skull-1.jpeg" /> -->
+      <img alt="Boolean News Logo" class="logo" src="./assets/images/skull-2.jpeg" />
     </div>
     <div>
       <HelloWorld msg="Boolean News" />
-      <nav @click="scrollTo">
+      <nav class="navbar" @click="scrollTo">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/space">Aeroespacial (EN)</RouterLink>
         <RouterLink to="/feriados">Feriados (BR)</RouterLink>
@@ -30,6 +34,7 @@ onMounted(() => {
 
   <main id="main">
     <RouterView />
+    <IconUpArrow />
   </main>
 
   <footer class="footer">
@@ -45,27 +50,36 @@ header {
   padding: 2rem;
 }
 
-nav {
+.navbar {
   display: flex;
   justify-content: space-around;
   padding: 20px 0;
   border-bottom: 1px solid #dedede;
+  gap: 20px;
 }
 
 .logo-box {
   background-image: url(./assets/images/matrix-bg.gif);
   background-size: contain;
-  height: 480px;
-  border-radius: 0 25px 5px 8px;
+  background-position: center;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 5px;
+  transition: max-width 0.5s ease-in-out;
 }
 .logo {
-  width: 320px;
-  border-radius: 0 25px 25px 0;
-  transition: border-radius 2s ease;
+  width: 100%;
+  opacity: 0.9;
+  vertical-align: middle;
+  transition: opacity 2s ease;
+}
+@media (min-width: 768px) {
+  .logo-box {
+    max-width: 500px;
+  }
 }
 .logo:hover {
-  transition: border-radius 2s ease;
-  border-radius: 0 25px 100% 0;
+  opacity: 0.3;
 }
 
 .footer {

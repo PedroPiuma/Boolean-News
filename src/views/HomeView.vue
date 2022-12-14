@@ -1,8 +1,7 @@
 <script setup>
-import TheWelcome from "../components/TheSpaceNews.vue"
+import TheWelcome from "../components/TheWelcome.vue"
 </script>
 
 <template>
-  Home
-  <!-- <TheWelcome /> -->
+  <TheWelcome />
 </template>

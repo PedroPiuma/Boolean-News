@@ -1,9 +1,14 @@
 <script setup>
 import { format } from "date-fns"
+import { ref } from "vue"
+import Loader from "./Loader.vue"
 const { news } = defineProps(["news"])
 const { id, imageUrl, newsSite, summary, title, updatedAt, url } = news
 
+const isLoaded = ref(false)
+
 const date = format(new Date(updatedAt), "dd/MM/yyyy")
+const loaded = (event) => (isLoaded.value = true)
 </script>
 
 <template>
@@ -15,7 +20,8 @@ const date = format(new Date(updatedAt), "dd/MM/yyyy")
       </a>
     </div>
     <h3>{{ title }}</h3>
-    <img :src="imageUrl" alt="" />
+    <Loader v-if="!isLoaded" />
+    <img :src="imageUrl" alt="" @load="loaded" />
     <p>{{ summary }}</p>
   </div>
 </template>
@@ -25,11 +31,11 @@ const date = format(new Date(updatedAt), "dd/MM/yyyy")
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #a5a5a5;
   border-radius: 8px;
-  padding: 0 5px 20px;
+  padding: 10px 10px 20px;
   margin: 10px 15px;
   background-color: #121212;
+  max-width: 600px;
 }
 .news-item span,
 .news-item a {
@@ -54,5 +60,25 @@ const date = format(new Date(updatedAt), "dd/MM/yyyy")
   margin: 0 15px;
   text-align: center;
   font-size: 14px;
+  max-width: 480px;
+}
+
+@media (min-width: 768px) {
+  .news-item span,
+  .news-item a {
+    font-size: 17px;
+    line-height: 40px;
+  }
+
+  .news-item h3 {
+    font-size: 22px;
+    line-height: 27px;
+  }
+  .news-item img {
+    margin-bottom: 20px;
+  }
+  .news-item p {
+    font-size: 17px;
+  }
 }
 </style>
