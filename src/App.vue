@@ -24,7 +24,7 @@ onMounted(() => {
     <div>
       <HelloWorld msg="Boolean News" />
       <nav class="navbar" @click="scrollTo">
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Valorant</RouterLink>
         <RouterLink to="/space">Aeroespacial (EN)</RouterLink>
         <RouterLink to="/feriados">Feriados (BR)</RouterLink>
         <!-- <RouterLink to="/about">About</RouterLink> -->
@@ -55,7 +55,7 @@ header {
   justify-content: space-around;
   padding: 20px 0;
   border-bottom: 1px solid #dedede;
-  gap: 20px;
+  gap: 10px;
 }
 
 .logo-box {
