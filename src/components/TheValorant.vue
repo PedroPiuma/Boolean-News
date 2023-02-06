@@ -15,6 +15,9 @@ async function fetchData() {
     const request = await axios.get(url.value)
     data.value = request.data.data
     // console.log(data.value)
+    data.value.forEach((el) => {
+      el.displayName === "Sova" ? console.log(el) : false
+    })
   } catch (error) {
     console.log(error.response.data.message)
   }
@@ -26,7 +29,7 @@ watch([url], fetchData)
 <template>
   <div class="valorant-list">
     <div class="valorant-agent-icons">
-      <ValorantAgentIcon v-for="agent in data" :agent="agent.displayIcon" />
+      <ValorantAgentIcon v-for="agent in data" :agent="agent.displayIcon" :uuid="agent.uuid" />
     </div>
     <ValorantItem v-for="item in data" :data="item" />
   </div>

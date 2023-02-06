@@ -1,5 +1,7 @@
 <!-- https://dash.valorant-api.com/endpoints/agents -->
 <script setup>
+import IconAudio from "./icons/IconAudio.vue"
+import AgentAbilities from "./AgentAbilities.vue"
 const { data } = defineProps(["data"])
 const {
   abilities,
@@ -16,21 +18,24 @@ const {
   killfeedPortrait,
   role,
   voiceLine,
+  uuid,
 } = data
 
-// console.log(abilities)
+// console.log(voiceLine.mediaList[0].wave)
+// console.log(uuid)
 </script>
 
 <template>
-  <div class="card" v-if="isPlayableCharacter">
+  <div class="card" v-if="isPlayableCharacter" :id="uuid">
     <div class="card-agent" :style="{ backgroundImage: `url(${background})` }">
       <img class="card-agent-img" :src="fullPortrait" alt="" />
-      <div class="card-agent-abilities">
-        <img class="card-agent-abilitie-img" v-for="abilitie in abilities" :src="abilitie.displayIcon" alt="" />
-      </div>
+      <AgentAbilities :abilities="abilities" />
     </div>
     <div class="card-info">
-      <p class="card-info-name">{{ displayName }}</p>
+      <div class="card-info-intro">
+        <p class="card-info-intro-name">{{ displayName }}</p>
+        <IconAudio :voiceLine="voiceLine" />
+      </div>
       <p class="card-info-description">{{ description }}</p>
     </div>
   </div>
@@ -56,23 +61,16 @@ const {
 .card-agent-img {
   width: 200px;
 }
-.card-agent-abilities {
-  display: flex;
-  justify-content: center;
-  background-image: linear-gradient(180deg, #141414, #333333);
-  padding: 5px 10px;
-  gap: 15px;
-  border-radius: 0 0 25% 25%;
-}
-.card-agent-abilitie-img {
-  width: 25px;
-}
-
 .card-info {
   padding: 15px 15px 15px 0;
 }
 
-.card-info-name {
+.card-info-intro {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.card-info-intro-name {
   font-size: 22px;
   margin-bottom: 5px;
 }

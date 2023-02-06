@@ -1,9 +1,10 @@
 <script setup>
-const { agent } = defineProps(["agent"])
+const { agent, uuid } = defineProps(["agent", "uuid"])
+// console.log(uuid)
 </script>
 
 <template>
-  <img class="valorant-agent-icons-icon" :src="agent" />
+  <a :href="`#${uuid}`"><img class="valorant-agent-icons-icon" :src="agent" /></a>
 </template>
 
 <style scoped>

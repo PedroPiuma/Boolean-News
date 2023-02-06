@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue"
 import { RouterLink, RouterView } from "vue-router"
-import HelloWorld from "./components/HelloWorld.vue"
+import IntroTitle from "./components/IntroTitle.vue"
 import IconUpArrow from "./components/icons/IconUpArrow.vue"
 import SocialMedia from "./components/SocialMedia.vue"
 
@@ -22,7 +22,7 @@ onMounted(() => {
       <img alt="Boolean News Logo" class="logo" src="./assets/images/skull-2.jpeg" />
     </div>
     <div>
-      <HelloWorld msg="Boolean News" />
+      <IntroTitle msg="Boolean News" />
       <nav class="navbar" @click="scrollTo">
         <RouterLink to="/">Valorant</RouterLink>
         <RouterLink to="/space">Aeroespacial (EN)</RouterLink>
