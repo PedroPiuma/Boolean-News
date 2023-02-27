@@ -17,7 +17,7 @@ async function fetchData() {
     const request = await axios.get(url.value)
     data.value = request.data
   } catch (error) {
-    console.log(error.response.data.message)
+    alert(error.response.data.message)
   }
 }
 fetchData()

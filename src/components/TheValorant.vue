@@ -14,12 +14,8 @@ async function fetchData() {
   try {
     const request = await axios.get(url.value)
     data.value = request.data.data
-    // console.log(data.value)
-    data.value.forEach((el) => {
-      el.displayName === "Sova" ? console.log(el) : false
-    })
   } catch (error) {
-    console.log(error.response.data.message)
+    alert(error.response.data.message)
   }
 }
 fetchData()
@@ -48,5 +44,6 @@ watch([url], fetchData)
   max-width: 400px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 30px;
 }
 </style>

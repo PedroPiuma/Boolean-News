@@ -78,4 +78,10 @@ const {
   height: 200px;
   overflow: scroll;
 }
+
+@media (min-width: 768px) {
+  .card-info-description {
+    overflow: hidden;
+  }
+}
 </style>

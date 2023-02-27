@@ -1,6 +1,6 @@
 <template>
   <div class="loader">
-    <div></div>
+    <div class="loader-circle"></div>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ div.loader {
   height: 200px;
 }
 
-div.loader div {
+div.loader .loader-circle {
   border: 5px solid #00bd7e;
   border-top-color: #812d2e;
   height: 80px;

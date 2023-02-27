@@ -68,7 +68,4 @@ const isActive = ref(null)
   top: 5px;
   right: 10px;
 }
-
-@media (min-width: 768px) {
-}
 </style>

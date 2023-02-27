@@ -8,7 +8,7 @@ const { id, imageUrl, newsSite, summary, title, updatedAt, url } = news
 const isLoaded = ref(false)
 
 const date = format(new Date(updatedAt), "dd/MM/yyyy")
-const loaded = (event) => (isLoaded.value = true)
+const loaded = () => (isLoaded.value = true)
 </script>
 
 <template>
